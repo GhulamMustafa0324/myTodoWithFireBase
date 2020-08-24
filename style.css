@@ -57,6 +57,10 @@ li{
     max-height:350px;
     overflow-y: scroll;
     overflow-x: hidden;
+
+}
+li:hover{
+    transform: scale(1.5);
 }
 
 .foo::-webkit-scrollbar{
