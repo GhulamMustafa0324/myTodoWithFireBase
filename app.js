@@ -1,9 +1,8 @@
 var list = document.getElementById("list");
 firebase.database().ref('todos').on('child_added', function (data) {
     var li = document.createElement('li')
-    var liText = document.createTextNode(todoItem.value)
+    var liText = document.createTextNode(data.val().value)
     li.appendChild(liText)
-
     list.appendChild(li)
 
 
@@ -22,7 +21,6 @@ firebase.database().ref('todos').on('child_added', function (data) {
     editBtn.setAttribute('onclick', 'editItem(this)')
     editBtn.setAttribute('id', data.val().key)
     li.appendChild(editBtn)
-
     var HR = document.createElement('hr')
     li.appendChild(HR)
 })
@@ -46,10 +44,6 @@ function addTodo() {
         firebase.database().ref('todos').child(key).set(todo)
 
         // li 
-
-
-
-
         todoItem.value = ""
 
     }
